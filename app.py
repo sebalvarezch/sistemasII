@@ -28,7 +28,7 @@ mysql = MySQL()
 app.config['MYSQL_HOST'] = 'sealvarez18.mysql.pythonanywhere-services.com'
 app.config['MYSQL_USER'] = 'sealvarez18'
 app.config['MYSQL_PASSWORD'] = 'Nena19##'
-app.config['MYSQL_DB'] = 'tintoreria_db'
+app.config['MYSQL_DB'] = 'sealvarez18$tintoreria_db'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 #Inicializando el mysql
