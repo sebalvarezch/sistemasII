@@ -25,7 +25,7 @@ configure_uploads(app, photos)
 
 #Configurando la conexion con la base de datos
 mysql = MySQL()
-app.config['MYSQL_HOST'] = '127.0.0.1'
+app.config['MYSQL_HOST'] = 'sealvarez18.mysql.pythonanywhere-services.com'
 app.config['MYSQL_USER'] = 'sealvarez18'
 app.config['MYSQL_PASSWORD'] = 'Nena19##'
 app.config['MYSQL_DB'] = 'tintoreria_db'
