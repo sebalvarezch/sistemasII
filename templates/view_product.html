@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<div class="container" style="display:flex;width:10000px;">
+    <div class="row">
+        <div class="col-lg-3 my-4">
+            <ul>
+                <a href="/camisa" class="list-group-item">Camisas</a>
+                <a href="/franela" class="list-group-item">Franelas</a>
+                <a href="/chemise" class="list-group-item">Chemises</a>
+                <a href="/traje" class="list-group-item">Trajes</a>
+                <a href="/corbata" class="list-group-item">Corbatas</a>
+                <a href="/pantalon" class="list-group-item">Pantalones</a>
+                <a href="/sueter" class="list-group-item">Sueteres</a>
+                <a href="/jean" class="list-group-item">Jeans</a>
+            </ul>
+        </div>
+        <div class="col-lg-9">
+            <div class="row">
+                {% for product in producto %}
+                <div class="col-lg-6">
+                    <div class="card mt-4">
+                        <img class="card-img-top img-fluid"
+                             src="static/image/product/{{product.category}}/{{product.picture}}" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card card-outline-secondary my-4">
+                        <div class="card-header">
+                            Detalle de la compra
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">{{ product.pName}}</h3>
+                            <h4>${{ product.price}}</h4>
+                            <p class="card-text">{{ product.description}}</p>
+                            <a href="/{{product.category}}?order={{product.id}}" class="btn btn-dark">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+            {% if x == '' %}
+            <h2 class="mb-4">No se encontro productos similares</h2>
+            {% else%}
+            <h2 class="mb-4">Productos que quizas te interesen:</h2>
+            <div class="row">
+                {% for product in x[0] %}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card mb-4">
+                        <a href="/{{product.category}}?view={{product.id}}">
+                            <div class="card-img-top id_{{product.id}}"
+                                 style="background: url('static/image/product/{{product.category}}/{{product.picture}}'); background-repeat:no-repeat; background-size: cover; height:200px;width:100% "></div>
+                        </a>
+                        <div class="card-body">
+                            <h5><a class="card-title" style="color: #000000;" href="/{{product.category}}?view={{product.id}}">{{ product.pName}}</a></h5>
+                            <h4>${{product.price}}</h4>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

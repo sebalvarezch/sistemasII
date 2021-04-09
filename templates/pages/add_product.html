@@ -1,0 +1,201 @@
+{% extends 'pages/layout.html' %}
+{% block body %}
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Agregar Producto</h1>
+            {% include 'includes/_flashmsg.html' %}
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <form role="form" enctype=multipart/form-data class="" action="/admin_add_product"
+                                  method="post">
+                                <div class="form-group">
+                                    <label>Nombre del Producto o Servicio</label>
+                                    <input class="form-control" required="required" name="name" placeholder="Ingrese el nombre">
+                                </div>
+                                <div class="form-group">
+                                    <label>Precio</label>
+                                    <input class="form-control" required="required" name="price" placeholder="Ingrese el precio">
+                                </div>
+                                <div class="form-group">
+                                    <label>Descripcion</label>
+                                    <textarea class="form-control" required="required" name="description" rows="3"
+                                              placeholder="Escriba una descripcion para el producto o servicio"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Disponible</label>
+                                    <input class="form-control" required="required" name="available" placeholder="Ingrese la cantidad disponible">
+                                </div>
+                                <div class="form-group">
+                                    <label>Categoria</label>
+                                    <select class="form-control" id="category_id" onchange="populateList();"
+                                            name="category">
+                                        <option value="camisa">Camisa</option>
+                                        <option value="franela">Franela</option>
+                                        <option value="chemise">Chemise</option>
+                                        <option value="traje">Traje</option>
+                                        <option value="corbata">Corbata</option>
+                                        <option value="pantalon">Pantalon</option>
+                                        <option value="sueter">Sueter</option>
+                                        <option value="jean">Jean</option>
+                                    </select>
+                                </div>
+                                <div class="form-group level-container">
+                                    <label>Servicios para las camisas:</label>
+                                    <div class="form-group">
+                                      <label class="checkbox-inline">
+                                        <input type="checkbox" name="camisa" value="lavado">Lavado
+                                      </label>
+                                      <label class="checkbox-inline">
+                                        <input type="checkbox" name="camisa" value="planchado">Planchado
+                                      </label>
+                                      <label class="checkbox-inline">
+                                        <input type="checkbox" name="camisa" value="confeccion">Corte y Confeccion
+                                      </label>
+                                      <label class="checkbox-inline">
+                                        <input type="checkbox" name="camisa" value="completo">Lavado, Secado y Planchado
+                                      </label>
+                                    </div>
+                                    <label>Servicios para las franelas:</label>
+                                    <div class="form-group">
+                                      <label class="checkbox-inline">
+                                        <input type="checkbox" name="franela" value="lavado">Lavado
+                                      </label>
+                                      <label class="checkbox-inline">
+                                        <input type="checkbox" name="franela" value="planchado">Planchado
+                                      </label>
+                                      <label class="checkbox-inline">
+                                        <input type="checkbox" name="franela" value="confeccion">Corte y Confeccion
+                                      </label>
+                                      <label class="checkbox-inline">
+                                        <input type="checkbox" name="franela" value="completo">Lavado, Secado y Planchado
+                                      </label>
+                                    </div>
+                                    <label>Servicios para las chemises:</label>
+                                    <div class="form-group">
+                                      <label class="checkbox-inline">
+                                        <input type="checkbox" name="chemise" value="lavado">Lavado
+                                      </label>
+                                      <label class="checkbox-inline">
+                                        <input type="checkbox" name="chemise" value="planchado">Planchado
+                                      </label>
+                                      <label class="checkbox-inline">
+                                        <input type="checkbox" name="chemise" value="confeccion">Corte y Confeccion
+                                      </label>
+                                      <label class="checkbox-inline">
+                                        <input type="checkbox" name="chemise" value="completo">Lavado, Secado y Planchado
+                                      </label>
+                                    </div>
+                                    <label>Servicios para los trajes de vestir:</label>
+                                    <div class="form-group">
+                                      <label class="checkbox-inline">
+                                        <input type="checkbox" name="traje" value="lavado">Lavado
+                                      </label>
+                                      <label class="checkbox-inline">
+                                        <input type="checkbox" name="traje" value="planchado">Planchado
+                                      </label>
+                                      <label class="checkbox-inline">
+                                        <input type="checkbox" name="traje" value="confeccion">Corte y Confeccion
+                                      </label>
+                                      <label class="checkbox-inline">
+                                        <input type="checkbox" name="traje" value="completo">Lavado, Secado y Planchado
+                                      </label>
+                                    </div>
+                                      <label>Servicios para las corbatas:</label>
+                                      <div class="form-group">
+                                        <label class="checkbox-inline">
+                                          <input type="checkbox" name="corbata" value="lavado">Lavado
+                                        </label>
+                                        <label class="checkbox-inline">
+                                          <input type="checkbox" name="corbata" value="planchado">Planchado
+                                        </label>
+                                        <label class="checkbox-inline">
+                                          <input type="checkbox" name="corbata" value="confeccion">Corte y Confeccion
+                                        </label>
+                                        <label class="checkbox-inline">
+                                          <input type="checkbox" name="corbata" value="completo">Lavado, Secado y Planchado
+                                        </label>
+                                      </div>
+                                        <label>Servicios para pantalones de vestir:</label>
+                                        <div class="form-group">
+                                          <label class="checkbox-inline">
+                                            <input type="checkbox" name="pantalon" value="lavado">Lavado
+                                          </label>
+                                          <label class="checkbox-inline">
+                                            <input type="checkbox" name="pantalon" value="planchado">Planchado
+                                          </label>
+                                          <label class="checkbox-inline">
+                                            <input type="checkbox" name="pantalon" value="confeccion">Corte y Confeccion
+                                          </label>
+                                          <label class="checkbox-inline">
+                                            <input type="checkbox" name="pantalon" value="completo">Lavado, Secado y Planchado
+                                          </label>
+                                        </div>
+                                          <label>Servicios para sueteres:</label>
+                                          <div class="form-group">
+                                            <label class="checkbox-inline">
+                                              <input type="checkbox" name="sueter" value="lavado">Lavado
+                                            </label>
+                                            <label class="checkbox-inline">
+                                              <input type="checkbox" name="sueter" value="planchado">Planchado
+                                            </label>
+                                            <label class="checkbox-inline">
+                                              <input type="checkbox" name="sueter" value="confeccion">Corte y Confeccion
+                                            </label>
+                                            <label class="checkbox-inline">
+                                              <input type="checkbox" name="sueter" value="completo">Lavado, Secado y Planchado
+                                            </label>
+                                          </div>
+                                            <label>Servicios para jeans:</label>
+                                            <div class="form-group">
+                                              <label class="checkbox-inline">
+                                                <input type="checkbox" name="jean" value="lavado">Lavado
+                                              </label>
+                                              <label class="checkbox-inline">
+                                                <input type="checkbox" name="jean" value="planchado">Planchado
+                                              </label>
+                                              <label class="checkbox-inline">
+                                                <input type="checkbox" name="jean" value="confeccion">Corte y Confeccion
+                                              </label>
+                                              <label class="checkbox-inline">
+                                                <input type="checkbox" name="jean" value="completo">Lavado, Secado y Planchado
+                                              </label>
+                                            </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Item</label>
+                                    <input class="form-control" required="required" name="item" placeholder="Ejemplo: camisa, franela...">
+                                </div>
+                                <div class="form-group">
+                                    <label>Codigo del Producto</label>
+                                    <input class="form-control" required="required" name="code" placeholder="Ingrese el condigo del producto">
+                                </div>
+                                <div class="form-group">
+                                    <label>Agregar Imagen</label>
+                                    <input type="file" required="required" name="picture">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Agregar</button>
+                            </form>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /#page-wrapper -->
+{% endblock %}

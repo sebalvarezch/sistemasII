@@ -1,0 +1,7 @@
+Flask_MySQLdb==0.2.0
+Flask_Mail==0.9.1
+passlib==1.7.4
+Flask_Uploads==0.2.1
+Flask==1.1.2
+WTForms==2.3.3
+gunicorn
