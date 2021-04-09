@@ -26,8 +26,8 @@ configure_uploads(app, photos)
 #Configurando la conexion con la base de datos
 mysql = MySQL()
 app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'password'
+app.config['MYSQL_USER'] = 'sealvarez18'
+app.config['MYSQL_PASSWORD'] = 'Nena19##'
 app.config['MYSQL_DB'] = 'tintoreria_db'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
